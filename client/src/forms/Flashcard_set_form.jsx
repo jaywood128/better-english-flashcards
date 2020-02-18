@@ -10,6 +10,7 @@ class FlashcardSetForm extends React.Component {
 
   handleOnSubmit = (event) => {
     event.preventDefault()
+    debugger
     // this.props.createFlashCardSet(this.state.title, this.state.description)
     this.setState({
       title: "",
@@ -21,6 +22,7 @@ class FlashcardSetForm extends React.Component {
   render (){
     return (
     <div className="flashcard-set-form-container">
+      <h2> Create a new set of flashcards</h2>
       <form onSubmit={this.handleOnSubmit}>
         
        <label> Title: </label> <input type="text" value={this.state.title} onChange={event => this.setState({title: event.target.value})}/>
