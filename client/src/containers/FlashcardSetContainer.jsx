@@ -1,26 +1,21 @@
-// client/src/components/PostList.jsx
 import React, { Component }               from 'react'
 import { Link }                           from 'react-router-dom'
+import { fetchFlashcardSets } from '../actions/fetchFlashcardSets';
+import { connect } from 'react-redux';
 
 class FlashcardSetsContainer extends Component {
 
   state = {
-    flashcardSets: []
+    FlashcardSets: []
   }
 
   componentDidMount() {
-    fetch('/api/v1/flashcardsets')
-      .then(flashcardSets => flashcardSets.json())
-      .then(flashcardSets => {
-        this.setState({
-          flashcardSets: flashcardSets 
-        })
-      })
+    this.props.fetchFlashcardSets()
   }
 
   renderFlashcardSets = () => {
-    return this.state.flashcardSets.map(flashcardSet => {
-      return <FlashcardSet title={flashcardSet.title} description={flashcardSet.description} /> 
+    return this.props.FlashcardSets.map(FlashcardSet => {
+      return <FlashcardSet title={FlashcardSet.title} description={FlashcardSet.description} /> 
       } 
     )
   }
@@ -36,4 +31,12 @@ class FlashcardSetsContainer extends Component {
   }
 }
 
-export default FlashcardSetsContainer
+const mapDispatchToProps = dispatch => ({
+  fetchFlashcardSets: ()=> dispatch(fetchFlashcardSets())
+})
+
+const mapStateToProps = (state) => {
+  return {FlashcardSets: state.FlashcardSets }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(FlashcardSetsContainer) 
