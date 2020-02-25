@@ -10,14 +10,18 @@ class FlashcardSetsContainer extends Component {
   }
 
   componentDidMount() {
+    debugger
     this.props.fetchFlashcardSets()
   }
 
   renderFlashcardSets = () => {
-    return this.props.FlashcardSets.map(FlashcardSet => {
-      return <FlashcardSet title={FlashcardSet.title} description={FlashcardSet.description} /> 
-      } 
-    )
+    if(this.props.FlashcardSets){
+      return this.props.FlashcardSets.map(FlashcardSet => {
+        return <FlashcardSet title={FlashcardSet.title} description={FlashcardSet.description} /> 
+        } 
+      )
+    }
+   
   }
 
   render() {

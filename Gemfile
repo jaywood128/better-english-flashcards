@@ -7,6 +7,7 @@ ruby '2.6.1'
 gem 'rails', '~> 5.2.4', '>= 5.2.4.1'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+gem 'pry'
 gem 'webpacker'
 gem 'devise'
 # Use Puma as the app server
