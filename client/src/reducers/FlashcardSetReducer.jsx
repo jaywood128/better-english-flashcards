@@ -9,11 +9,7 @@ export default (state = { myFlashcardSets: [] }, action) => {
         return {...state,
           myFlashcardSets: [
             ...state.myFlashcardSets, 
-            {
-              title: action.title, 
-              description: action.description   
-            }
-                         
+            action.payload             
             ]
         }
 
