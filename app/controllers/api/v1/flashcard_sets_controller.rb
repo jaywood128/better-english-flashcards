@@ -6,13 +6,32 @@ module Api
       def new
       end 
 
+      def create 
+        binding.pry
+        if user_signed_in?
+          @flashcard_set = FlashcardSet.create!(title: params[:title], description: params[:description])
+          if @flashcard_set.save 
+            render json: @flashcard_set, status: 200 
+          else 
+            render json: flashcard_sets.each do |flashcard |
+              flashcard.error
+            end  
+          end 
+        else 
+          redirect_to devise_user_sign_in_path 
+        end 
+      end 
+
       def index 
 
         if user_signed_in? 
+         
           if flashcard_sets = current_user.flashcard_sets.all
-            render json: @flashcard_set, status: 200
+            render json: @flashcard_sets, status: 200
           else 
-            render json: flashcard_sets.each(error => console.log(error)), status: 400
+            render json: flashcard_sets.each do |flashcard |
+                            flashcard.error
+                          end 
           end
         else 
           render json: {}, status: 401

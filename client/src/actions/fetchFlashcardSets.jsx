@@ -4,7 +4,7 @@ export function fetchFlashcardSets(){
   
   return fetch('/api/v1/flashcard_sets')
       .then(resp => resp.json())
-      .then(flashcard_sets => dispatch({ type: 'FETCH_LAST_THIRTY_DAYS', flashcard_sets }))
+      .then(flashcard_sets => dispatch({ type: 'GET_FLASHCARD_SETS', flashcard_sets }))
       .catch(error => console.log(error))
     }
 }

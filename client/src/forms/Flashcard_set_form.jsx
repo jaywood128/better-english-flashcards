@@ -10,12 +10,12 @@ class FlashcardSetForm extends React.Component {
 
   handleOnSubmit = (event) => {
     event.preventDefault()
-    debugger
-    // this.props.createFlashCardSet(this.state.title, this.state.description)
-    this.setState({
-      title: "",
-      description: ""
-    })
+    
+    this.props.createFlashCardSet(this.state.title, this.state.description)
+    // this.setState({
+    //   title: "",
+    //   description: ""
+    // })
   }
 
 

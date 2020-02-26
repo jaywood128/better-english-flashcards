@@ -9,7 +9,7 @@ function App() {
   return (
   <Router> 
     <Switch>
-      <Route path="/flashcard_set/new" component={FlashcardSet}></Route>
+      <Route path="/flashcard_set/new" component={FlashcardSetForm}></Route>
     <div className="App">
       <header className="App-header">
         <FlashcardSetContainer/>
