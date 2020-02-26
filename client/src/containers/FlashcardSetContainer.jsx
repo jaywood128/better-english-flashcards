@@ -10,7 +10,7 @@ class FlashcardSetsContainer extends Component {
   }
 
   componentDidMount() {
-    debugger
+
     this.props.fetchFlashcardSets()
   }
 

@@ -1,5 +1,6 @@
 import React from 'react'
-
+import { connect } from 'react-redux';
+import { createFlashcardSet } from '../actions/createFlashcardSet';
 class FlashcardSetForm extends React.Component {
   constructor(props){
     super(props)
@@ -8,14 +9,12 @@ class FlashcardSetForm extends React.Component {
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
   }
 
+
   handleOnSubmit = (event) => {
     event.preventDefault()
     
-    this.props.createFlashCardSet(this.state.title, this.state.description)
-    // this.setState({
-    //   title: "",
-    //   description: ""
-    // })
+    this.props.createFlashcardSet(this.state.title, this.state.description)
+   
   }
 
 
@@ -27,10 +26,21 @@ class FlashcardSetForm extends React.Component {
         
        <label> Title: </label> <input type="text" value={this.state.title} onChange={event => this.setState({title: event.target.value})}/>
         <label>Description: </label> <input type="text" value={this.state.description} onChange={event => this.setState({description: event.target.value})}/>
+        <button type="submit">Submit</button>
       </form> 
     </div>
     )
   }
 }
 
-export default FlashcardSetForm
+const mapDispatchToProps = dispatch => ({
+  createFlashcardSet: ()=> dispatch(createFlashcardSet())
+})
+
+// const mapStateToProps = (state) => {
+//   return {}
+// }
+
+export default connect(null, mapDispatchToProps)(FlashcardSetForm)
+
+
