@@ -7,9 +7,9 @@ module Api
       end 
 
       def create 
-        binding.pry
+       binding.pry
         if user_signed_in?
-          @flashcard_set = FlashcardSet.create!(title: params[:title], description: params[:description])
+          @flashcard_set = current_user.flashcard_sets.build(title: params[:title], description: params[:description])
           if @flashcard_set.save 
             render json: @flashcard_set, status: 200 
           else 

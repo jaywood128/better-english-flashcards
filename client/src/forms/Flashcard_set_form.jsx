@@ -12,7 +12,7 @@ class FlashcardSetForm extends React.Component {
 
   handleOnSubmit = (event) => {
     event.preventDefault()
-    // debugger 
+    debugger 
     if (!this.state.title) return 
     this.props.createFlashcardSet(this.state.title, this.state.description)
     this.setState({
@@ -39,7 +39,7 @@ class FlashcardSetForm extends React.Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  createFlashcardSet: ()=> dispatch(createFlashcardSet())
+  createFlashcardSet: (title, description)=> dispatch(createFlashcardSet(title, description))
 })
 
 // const mapStateToProps = (state) => {

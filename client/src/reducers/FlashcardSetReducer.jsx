@@ -1,5 +1,5 @@
 export default (state = { myFlashcardSets: [] }, action) => {
-  debugger
+ 
   switch(action.type) {
     case'GET_FLASHCARD_SETS' :
       return {...state, 

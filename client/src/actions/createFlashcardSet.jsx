@@ -1,6 +1,6 @@
-export function createFlashcardSet(newtitle, newdescription){
-  
-  let newFlashcardSet = { title: newtitle, description: newdescription }
+export function createFlashcardSet(newTitle, newDescription){
+  // let form = document.getElementsByClassName("flashcard-set-form").
+  let newFlashcardSet = { title: newTitle, description: newDescription }
   debugger 
   return (dispatch) => {
     dispatch({ type: 'LOADING_FLASHCARDSETS_LOADING'})
